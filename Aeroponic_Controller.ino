@@ -16,7 +16,7 @@ void turn_on_pump()
 {
   // turn on pump here
   Serial.println("Pump on!");
-  timer.setTimeout(60000, turn_off_pump);
+  timer.setTimeout(15000, turn_off_pump);
   timer.toggle(pump_timer);
 }
 
@@ -31,19 +31,21 @@ void on_light()
 {
   // turn on light
   Serial.println("Light on!");
-  timer.setTimeout(432000000, off_light);
+  timer.setTimeout(20000, off_light);
   timer.toggle(light_timer);
 }
 
 void setup()
 {
   Serial.begin(9600);
-  pump_timer = timer.setInterval(3600000, turn_on_pump);
-  light_timer = timer.setInterval(432000000, on_light);
+  Serial.println("Starting!");
+  pump_timer = timer.setInterval(10000, turn_on_pump);
+  light_timer = timer.setInterval(20000, on_light);
 }
 
 void loop()
 {
   timer.run();
 }
+
 
