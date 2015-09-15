@@ -12,6 +12,7 @@ void turn_off_pump()
   Serial.println("Pump off!");
   digitalWrite(pump_pin, LOW);
   timer.toggle(pump_timer);
+  Serial.println(digitalRead(pump_pin));
 }
 
 void turn_on_pump()
@@ -21,6 +22,7 @@ void turn_on_pump()
   digitalWrite(pump_pin, HIGH);
   timer.setTimeout(15000, turn_off_pump);
   timer.toggle(pump_timer);
+  Serial.println(digitalRead(pump_pin));
 }
 
 void off_light()
@@ -29,6 +31,7 @@ void off_light()
   Serial.println("Light off!");
   digitalWrite(light_pin, LOW);
   timer.toggle(light_timer);
+  Serial.println(digitalRead(light_pin));
 }
 
 void on_light()
@@ -38,6 +41,7 @@ void on_light()
   digitalWrite(light_pin, HIGH);
   timer.setTimeout(20000, off_light);
   timer.toggle(light_timer);
+  Serial.println(digitalRead(light_pin));
 }
 
 void setup()
